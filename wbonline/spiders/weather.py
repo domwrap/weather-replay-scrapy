@@ -29,7 +29,7 @@ class WeatherSpider(scrapy.Spider):
             data = row.css("td::text").extract()
             # psum = row.css('td.span::text')
             # self.log( psum );
-            export = {
+            yield {
                 'date':         data[0]
                 , 'temp':       data[1]
                 , 'wind_avg':   data[2]
@@ -41,6 +41,6 @@ class WeatherSpider(scrapy.Spider):
                 , 'snow_new':   data[8].replace('\n', '').replace('\r', '').replace('  ', '')
                 , 'precip':     data[9].replace('\n', '').replace('\r', '').replace('  ', '')
             }
-            self.log( export )
+            # self.log( export )
 
-        self.log("\n")
+        # self.log("\n")
